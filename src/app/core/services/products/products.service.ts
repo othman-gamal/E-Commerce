@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,13 +13,13 @@ export class Products {
 
   getAllProducts():Observable<any>
 {
-  return this.httpClient.get(this.BASE_URL + '/api/v1/products')
+  return this.httpClient.get(`${environment.BASE_URL}/api/v1/products`)
 
 }
 
 getSpecificProduct(id:string):Observable<any>
 {
-  return this.httpClient.get(this.BASE_URL + `/api/v1/products/${id}`)
+  return this.httpClient.get(`${environment.BASE_URL}/api/v1/products/${id}`)
 
 }
 

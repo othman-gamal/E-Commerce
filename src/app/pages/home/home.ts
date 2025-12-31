@@ -1,19 +1,26 @@
-import { Categories } from './../categories/categories';
 import { Component, inject, OnInit } from '@angular/core';
-import { Products } from '../../core/services/products/products';
+import { Products } from '../../core/services/products/products.service';
 import { Iproduct } from '../../shared/interfaces/iproduct';
 import { CategoryService } from '../../core/services/categories/category.service';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { Icategory } from '../../shared/interfaces/icategory';
+import { RouterLink } from "@angular/router";
+import { TermtextPipe } from '../../core/pipes/termtext-pipe';
+import { SearchForPipe } from '../../core/pipes/search-for-pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
-  imports: [CarouselModule],
+  imports: [CarouselModule, RouterLink , TermtextPipe,SearchForPipe, FormsModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home implements  OnInit{
- 
+
+  // private readonly id =
+
+searchInput:string =''
+
   customMainSlider : OwlOptions = {
     loop: true,
     mouseDrag: true,

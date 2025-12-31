@@ -1,17 +1,19 @@
+import { Details } from './pages/details/details';
 import { Routes } from '@angular/router';
 import { AuthLayout } from './layouts/auth-layout/auth-layout';
 import { BlankLayout } from './layouts/blank-layout/blank-layout';
 import { Notfound } from './pages/notfound/notfound';
+import { loggedGuard } from './core/guards/logged-guard';
+import { authGuard } from './core/guards/auth-guard';
 
 export const routes: Routes = [
 
-  // ✅ FIX 1: correct empty path redirect
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-  // ✅ Auth layout (login / register)
   {
     path: '',
     component: AuthLayout,
+    canActivate:[loggedGuard],   
     children: [
       {
         path: 'login',
@@ -24,6 +26,12 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/register/register').then(c => c.Register),
         title: 'Register'
+      },
+      {
+        path: 'forget',
+        loadComponent: () =>
+          import('./components/forget-password/forget-password').then(c => c.ForgetPassword),
+        title: 'Register'
       }
     ]
   },
@@ -32,6 +40,7 @@ export const routes: Routes = [
   {
     path: '',
     component: BlankLayout,
+    canActivate:[authGuard],
     children: [
       {
         path: 'home',
@@ -49,6 +58,12 @@ export const routes: Routes = [
         path: 'products',
         loadComponent: () =>
           import('./pages/products/products').then(c => c.Products),
+        title: 'Products'
+      },
+      {
+        path: 'details/:id',
+        loadComponent: () =>
+          import('./pages/details/details').then(c => c.Details),
         title: 'Products'
       },
       {
@@ -72,6 +87,5 @@ export const routes: Routes = [
     ]
   },
 
-  // ✅ 404 must be LAST
   { path: '**', component: Notfound, title: '404 Not Found' }
 ];

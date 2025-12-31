@@ -1,10 +1,10 @@
-<section class="w-1/2 mx-auto bg-gray-50 p-4 rounded border-2 shadow">
-    <h1 class="text-3xl font-medium text-center">Register</h1>
-    <form [formGroup]="RegisterForm" (ngSubmit)="submitForm()">
+<section class="w-1/2 mx-auto bg-gray-50 p-4 rounded border-2 border-green-700 shadow"> 
+    <h1 class="text-3xl font-medium text-center text-green-500">Register</h1>
+    <form [formGroup]="RegisterForm" (ngSubmit)="submitForm()" >
         <div class="mb-1">
             @let nameControl = RegisterForm.get('name');
-            <label for="Name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
-            <input formControlName="name" type="text" id="Name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Your Name ..." required />
+            <label for="Name" class="block mb-2 text-sm font-medium text-green-900 dark:text-white">Name</label>
+            <input formControlName="name" type="text" id="Name" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Your Name ..." required />
             @if (nameControl?.errors && (nameControl?.touched || nameControl?.dirty) ) {
                     <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-100 border border-red-700" role="alert">
   <svg class="w-4 h-4 me-2 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
@@ -27,7 +27,7 @@
         <div class="mb-1">
             @let emailControl = RegisterForm.get('email');
             <label for="Email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-            <input formControlName="email" type="email" id="Email" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Your Name ..." required />
+            <input formControlName="email" type="email" id="Email" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Your Email ..." required />
         @if (emailControl?.errors && (emailControl?.touched || emailControl?.dirty) ) {
             <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-100 border border-red-700" role="alert">
   <svg class="w-4 h-4 me-2 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
@@ -47,7 +47,7 @@
         <div class="mb-1">
             @let passwordControl = RegisterForm.get('password');
             <label for="Password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-            <input formControlName="password" type="password" id="Password" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Your Name ..." required />
+            <input formControlName="password" type="password" id="Password" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Your Passowrd ..." required />
             @if (passwordControl?.errors && (passwordControl?.touched || passwordControl?.dirty) ) {
             <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-100 border border-red-700" role="alert">
   <svg class="w-4 h-4 me-2 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
@@ -77,9 +77,9 @@
     type="password"
     id="rePassword"
     class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg
-           focus:ring-blue-500 focus:border-brand block w-full px-3 py-2.5
+           focus:ring-green-500 focus:border-green-800 block w-full px-3 py-2.5
            shadow-xs placeholder:text-body"
-    placeholder="Your Name ..."
+    placeholder="Confirm Password ..."
     required
   />
 
@@ -107,7 +107,7 @@
         <div class="mb-1">
             @let phoneControl = RegisterForm.get('phone');
             <label for="Phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
-            <input formControlName="phone" type="tel" id="Phone" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Your Phone ..." required />
+            <input formControlName="phone" type="tel" id="Phone" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-800 block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="Your Phone ..." required />
             @if (phoneControl?.errors && (phoneControl?.touched || phoneControl?.dirty) ) {
             <div class="flex p-4 mb-4 text-sm text-red-700 rounded-base bg-red-100 border border-red-700" role="alert">
   <svg class="w-4 h-4 me-2 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 11h2v5m-2 0h4m-2.592-8.5h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
@@ -125,7 +125,24 @@
 </div>}
         </div>
 
-        <button   type="submit"  class="bg-green-600 block mx-auto text-white px-12 py-2 border rounded-xl mt-2 hover:bg-green-400 transition-colors duration-500  ">Sign UP</button>
+        <button   type="submit"  [disabled]="isLoading" class="bg-green-600 block mx-auto text-white px-12 py-2 border rounded-xl mt-2 hover:bg-green-400 transition-colors duration-500 disabled:bg-gray-600 disabled:cursor-not-allowed ">
+          @if(isLoading){
+            <span><i class="fas fa-spin fa-spinner "></i></span>
+          }@else {
+            Sign UP
+          }
+        </button>
+        @if(errorMsg){
+          <p class="bg-red-400 text-white px-2 py-4 border mt-2">
+            {{errorMsg}}
+          </p>
+        
+        }
+        @if(isSuccess){
+          <p class="bg-green-400 text-white px-2 py-4 border mt-2">
+            {{isSuccess}}
+          </p>
+        }
 
     </form>
 </section>

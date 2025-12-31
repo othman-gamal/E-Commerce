@@ -48,23 +48,32 @@
 
 <section>
     <h2 class="text-center text-4xl text-black py-10">Popular Products</h2>
+    
+        <input [(ngModel)]="searchInput" type="search" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-green-500 focus:border-green-800 block  px-3 py-2.5 shadow-xs placeholder:text-body w-lg mx-auto my-2 " placeholder="Search by naame ....">
     <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
-        @for (product of Products; track product._id) {
-            <div class="card border border-green-400/50 rounded-md overflow-hidden shadow relative">
-            <div class="card-img">
+        @for (product of Products | searchFor : searchInput; track product._id) {
+            <div  class="card border border-green-400/50 rounded-md overflow-hidden shadow relative">
+           <div [routerLink]="['/details',product._id]" class="cursor-pointer">
+             <div class="card-img">
                 <img [src]="product.imageCover" [alt]="product.title" class="w-full h-[250px] object-contain">
             </div>
             <div class="card-body px-2 py-4">
                 <h4 class="text-green-500 text-xs">{{product.category.name}}</h4>
-                <h3 class="font-medium" > {{product.title.split(' ',2).join(' ') }} </h3>
+                <h3 class="font-medium" > {{product.title | termtext : 2}} </h3>
                 <div class="flex justify-between items-center">
                     <span>{{product.price}}</span>
                     <div class="flex items-center">
-                        <i class="fa fa-star text-yellow-300"></i>
+                        @for (num of [1,2,3,4,5].slice(0,product.ratingsAverage); track $index) {
+                            <span><i class="fas fa-star rating-color"></i></span>
+                        }
+                        @if (product.ratingsAverage % 1 !== 0) {
+                            <i class="fa-solid fa-star-half-stroke rating-color"></i>
+                        }
                         <span class="text-gray-500">{{product.ratingsAverage }}</span>
                     </div>
                 </div>
             </div>
+           </div>
             <button class="bg-green-600 text-white py-2 px-10 border rounded w-[90%] mx-auto block">Add to cart</button>
         </div>
         }

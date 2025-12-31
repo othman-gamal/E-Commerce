@@ -1,5 +1,6 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../core/services/Auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,4 +11,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class Navbar {
 
   islogin=input<boolean>(true)
+
+  private readonly authservice=inject(AuthService)
+
+  logout():void{
+    this.authservice.logOut();
+  }
 }
